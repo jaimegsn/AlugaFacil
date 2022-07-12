@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar AlugaFacil</title>
+    <link rel="stylesheet" href="{% static 'autenticacao/css/register.css' %}">
+</head>
+
+<body>
+
+    <div class="container_register">
+        <form class="form_register" action="{% url 'auth_urls-register' %}" method="POST"> {% csrf_token %}
+            <div class="register_content">
+                <span>CADASTRO</span>
+                <div class="inputs_container">
+                    <div class="field_data">
+                        <label>*Digite seu nome: </label>
+                        <input type="text" Required name="name" id="name" class="inputUser" placeholder="Nome...">
+                    </div>
+    
+                    <div class="field_data">
+                        <label>*Digite seu email: </label>
+                        <input type="email" Required name="email" id="email" class="inputUser" placeholder="Email...">
+                    </div>
+    
+                    <div class="field_data">
+                        <label>*Digite sua senha: </label>
+                        <input type="password" Required name="password" id="password" class="inputUser" placeholder="Senha...">
+                    </div>
+    
+                    <div class="field_data">
+                        <label>*Confirme sua senha: </label>
+                        <input type="password" Required name="confirm-password" id="confirm-password" class="inputUser" placeholder="Confirme a senha...">
+                    </div>
+                    <div class="button_container">
+                        <button type="submit">Registrar</button>
+                    </div>
+    
+                    {% if messages %}
+                    <br>
+                    {% for message in messages %}
+                    <div class="alert {{message.tags}}">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

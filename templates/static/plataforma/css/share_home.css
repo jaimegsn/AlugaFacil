@@ -1,0 +1,39 @@
+.card-sh-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.descricao-sh-container {
+    background: #AEACAC;
+    width: 300px;
+    height: 130px;
+    text-align: center;
+    border-radius: 40px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.container-example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wpp-sh-container {
+    background: #ECECEC;
+    width: 145px;
+    height: 45px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.wpp-btn-shar-home {
+    position: relative;
+    top: 10px;
+    color: #486FFB;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}

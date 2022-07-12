@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'plataforma/css/cadastro.css' %}">
+{% endblock %}
+
+{% block url_publicar %}
+"{% url 'plataforma_urls-share_cad' %}"
+{% endblock %}
+{% block nome_publicar %}
+Publicar
+{% endblock %}
+
+{% block nome_user %}
+{{user}}
+{% endblock %}
+
+
+
+{% block title %}
+Cadastro Imoveis
+{% endblock %}
+
+{% block content %}
+<form class="form_register_house" action="" method="POST"> {% csrf_token %}
+    <fieldset>
+        <legend>Publique um Anuncio</legend>
+        <div class="field descricao">
+            <label>*Digite a Descrição</label><br>
+            <input type="text" Required name="descricao" id="descricao" class="inputUser">
+        </div>
+
+        <div class="field contato">
+            <label>*Digite seu Contato</label><br>
+            <input type="text" Required name="contato" id="contato" class="inputUser">
+        </div>
+        <div class="button">
+            <button type="submit" id="Button">Publicar</button>
+        </div>
+    </fieldset>
+    {% endblock %}

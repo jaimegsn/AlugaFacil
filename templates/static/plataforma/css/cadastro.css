@@ -1,0 +1,60 @@
+.field {
+    margin-top: 30px;
+}
+
+.inputUser {
+    background-color: #B9B7B7;
+    border-radius: 42px;
+    border: none;
+}
+
+fieldset {
+    border: none;
+}
+
+#endereco {
+    width: 406px;
+    height: 20px;
+
+}
+
+#descricao {
+    width: 406px;
+    height: 20px;
+}
+
+#house-price {
+    width: 406px;
+    height: 20px;
+}
+
+#quartos {
+    width: 134px;
+    height: 34px;
+}
+
+#banheiros {
+    width: 134px;
+    height: 34px;
+}
+
+legend {
+    font-size: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.button {
+    margin-top: 30px;
+}
+
+#Button {
+    width: 181px;
+    height: 56px;
+    border-radius: 42px;
+}

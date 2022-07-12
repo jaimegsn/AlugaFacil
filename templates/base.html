@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <input name="search-bar" type="text" id="search-bar" placeholder="Pesquisa"></input>
+            <div class="profile">
+                {% block nome_user %}{% endblock %}
+                <a href={% block url_publicar %}{% endblock %}><button nome="Publicar" type="button" id="publicar">+
+                        {% block nome_publicar %}{% endblock %}</button></a>
+                </a>
+                </a>
+            </div>
+        </header>
+        <nav>
+            <div class="logo">Aluga Fácil</div>
+            <a href="{% url 'plataforma_urls-home' %}" class="link home">
+                <div class="section home">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9.99999 12.5001C10.9205 12.5001 11.6667 11.7539 11.6667 10.8334C11.6667 9.91294 10.9205 9.16675 9.99999 9.16675C9.07952 9.16675 8.33333 9.91294 8.33333 10.8334C8.33333 11.7539 9.07952 12.5001 9.99999 12.5001Z"
+                            stroke="#1F50FF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M11.2083 9.62508L12.9167 7.91675" stroke="#1F50FF" stroke-width="1.25"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M5.33333 16.6667C4.11512 15.6984 3.22826 14.3752 2.79565 12.8804C2.36304 11.3856 2.4061 9.79328 2.91887 8.32405C3.43164 6.85482 4.38873 5.58147 5.65749 4.68046C6.92625 3.77945 8.44386 3.29541 10 3.29541C11.5561 3.29541 13.0737 3.77945 14.3425 4.68046C15.6113 5.58147 16.5684 6.85482 17.0811 8.32405C17.5939 9.79328 17.637 11.3856 17.2044 12.8804C16.7717 14.3752 15.8849 15.6984 14.6667 16.6667H5.33333Z"
+                            stroke="#1F50FF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    Início
+                </div>
+            </a>
+            <a href="{% url 'plataforma_urls-share_home' %}" class="link sharing">
+                <div class="section share_house"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.16667 10H2.5L10 2.5L17.5 10H15.8333" stroke="#1F50FF" stroke-width="1.25"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M4.16663 10V15.8333C4.16663 16.2754 4.34222 16.6993 4.65478 17.0118C4.96734 17.3244 5.39127 17.5 5.83329 17.5H14.1666C14.6087 17.5 15.0326 17.3244 15.3451 17.0118C15.6577 16.6993 15.8333 16.2754 15.8333 15.8333V10"
+                            stroke="#1F50FF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M7.5 17.5V12.5C7.5 12.058 7.6756 11.6341 7.98816 11.3215C8.30072 11.009 8.72464 10.8334 9.16667 10.8334H10.8333C11.2754 10.8334 11.6993 11.009 12.0118 11.3215C12.3244 11.6341 12.5 12.058 12.5 12.5V17.5"
+                            stroke="#1F50FF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Dividir Casas
+                </div>
+            </a>
+        </nav>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+
+</html>

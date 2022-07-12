@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'plataforma/css/announce.css' %}">
+{% endblock %}
+
+{% block url_publicar %}
+"{% url 'plataforma_urls-cad_imovel' %}"
+{% endblock %}
+{% block nome_publicar %}
+Publicar Casa!!
+{% endblock %}
+{% block nome_user %}
+{{user}}
+{% endblock %}
+
+{% block title %}
+Página Inicial
+{% endblock %}
+
+
+{% block content %}
+
+
+
+{% for imovel in imoveis %}
+<div class="container-announce">
+
+    <div class="img-container">
+        <img class="img-house" src="{{imovel.fotos.url}}">
+    </div>
+
+    <div class="descricao-container">
+        <div class="field-descricao">
+            <div class="d1">
+                {{imovel.descricao}}<br>
+                {{imovel.nbanheiros}} Banheiros<br>
+                {{imovel.nquartos}} Quartos<br>
+                Anuciado por {{imovel.user}}
+            </div>
+            <div class="d2">
+                {{imovel.valor}} R$
+            </div>
+        </div>
+        <div class="field-avaliar">
+            Avaliar:<br>
+            <form action="" method="post"> {% csrf_token %}
+                <select name="select-star-rating" id="star-rating">
+                    <option value="1">1 &#9733;</option>
+                    <option value="2">2 &#9733;</option>
+                    <option value="3">3 &#9733;</option>
+                    <option value="4">4 &#9733;</option>
+                    <option value="5">5 &#9733;</option>
+                </select>
+                <input type="text" name="txt-avaliar" id="txt-avaliar">
+                <button type="submit" id="btn-submit-avaliar">Avaliar</button>
+            </form><br>
+            <a href="https://wa.me/{{imovel.numero}}" target="_blank"><button>Whatsapp</button></a>
+            <a href="https://maps.google.com/?q=quixada, {{imovel.bairro}}" target="_blank"><button>Maps</button></a>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <div class="comentario-container">
+        {% for coment in comm %}
+        <p>{{coment.comments}} - {{coment.star}}&#9733;</p>
+        {% endfor %}
+    </div>
+
+
+    <div class="house-container">
+    </div>
+</div>
+
+
+{% endblock %}

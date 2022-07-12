@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}">
+{% endblock %}
+
+{% block url_publicar %}
+"{% url 'plataforma_urls-cad_imovel' %}"
+{% endblock %}
+{% block nome_publicar %}
+Publicar Casa!!
+{% endblock %}
+
+{% block nome_user %}
+{{user}}
+{% endblock %}
+
+{% block title %}
+Página Inicial
+{% endblock %}
+
+{% block content %}
+
+{% for imovel in imoveis %}
+<a href="{% url 'plataforma_urls-announce' imovel.id %}" }>
+    <div class="card-container">
+        {% if imovel.fotos %}
+        <div class="img-container">
+            <img class="img-house" src="{{imovel.fotos.url}}">
+        </div>
+        {% else %}
+        <div class="img-container">
+            <img class="img-house" src="{% static 'plataforma/img/image-not-found.jpg' %}">
+        </div>
+        {% endif %}
+
+        <div class="descricao-container">
+            {{imovel.descricao}}
+        </div>
+
+        <div class="user-container">
+            Preço: {{imovel.valor}} R$ - Vendido por: {{imovel.user}}
+        </div>
+    </div>
+</a>
+{% endfor %}
+
+{% endblock %}

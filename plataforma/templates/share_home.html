@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'plataforma/css/share_home.css' %}">
+{% endblock %}
+
+{% block url_publicar %}
+"{% url 'plataforma_urls-share_cad' %}"
+{% endblock %}
+{% block nome_publicar %}
+Publicar
+{% endblock %}
+
+{% block nome_user %}
+{{user}}
+{% endblock %}
+
+
+{% block title %}
+Página Inicial
+{% endblock %}
+
+{% block content %}
+
+{% for casa in sh %}
+<div class="card-sh-container">
+    <div class="container-example">
+        <div class="descricao-sh-container">
+            {{casa.descricao}}
+        </div>
+        <div class="wpp-sh-container">
+            <a class="wpp-btn-shar-home" target="_blank" href="https://wa.me/{{casa.numero}}">Whatsapp</a>
+        </div>
+    </div>
+
+</div>
+{% endfor %}
+
+{% endblock %}

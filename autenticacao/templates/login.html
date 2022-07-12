@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar AlugaFacil</title>
+    <link rel="stylesheet" href="{% static 'autenticacao/css/login.css' %}">
+</head>
+
+<body>
+    <div class="container_login">
+        <form class="form_login" action="" method="post"> {% csrf_token %}
+            <span>LOGIN</span>
+            <div class="input_container">
+                <input type="text" name="username" placeholder="Usuário" id="username" class="inputUser">
+                <input type="password" placeholder="Senha" name="pssw" id="passw" class="inputUser">
+            </div>
+            <div class="button_container">
+                <button type="submit">Entrar</button>
+            </div>
+            <div class="footer_container">
+                Não possui conta ? <a href="{% url 'auth_urls-register' %}">Registre-se</a>
+            </div>
+
+            {% if messages %}
+                <br>
+                {% for message in messages %}
+                <div class="alert {{message.tags}}">
+                    {{message}}
+                </div>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </div>
+</body>
+
+</html>

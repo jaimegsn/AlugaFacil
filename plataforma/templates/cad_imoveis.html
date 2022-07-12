@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'plataforma/css/cadastro.css' %}">
+{% endblock %}
+
+{% block url_publicar %}
+"{% url 'plataforma_urls-cad_imovel' %}"
+{% endblock %}
+{% block nome_publicar %}
+Publicar Casa!!
+{% endblock %}
+
+{% block nome_user %}
+{{user}}
+{% endblock %}
+
+
+{% block title %}
+Cadastro Imoveis
+{% endblock %}
+
+{% block content %}
+<form class="form_register_house" action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    <fieldset>
+        <legend>Cadastre seu imóvel</legend>
+        <div class="field endereco">
+            <label>*Digite o Bairro</label><br>
+            <input type="text" Required name="endereco" id="endereco" class="inputUser">
+        </div>
+
+        <div class="field Descricao">
+            <label>*Digite uma breve descrição (200 caracteres)</label><br>
+            <input type="text" Required name="descricao" id="descricao" class="inputUser">
+        </div>
+
+        <div class="field Valor">
+            <label>*Digite o Valor da casa </label><br>
+            <input type="number" Required name="house-price" id="house-price" class="inputUser">
+        </div>
+
+        <div class="field quartos">
+            <label>*Digite o numero de Quartos</label><br>
+            <input type="number" Required name="Quartos" id="quartos" class="inputUser">
+        </div>
+
+        <div class="field banheiro">
+            <label>*Digite o numero de banheiros </label><br>
+            <input type="number" Required name="Banheiros" id="banheiros" class="inputUser">
+        </div>
+
+        <div class="field Numero">
+            <label>*Insira o numero para contato</label><br>
+            <input type="text" Required name="numero" id="numero" class="inputUser">
+        </div>
+
+        <div class="field img">
+            <label>*Insira as fotos da casa </label><br>
+            <input type="file" Required name="image" id="image" class="inputImage">
+        </div>
+
+        <div class="button">
+            <button type="submit" id="Button">Registrar</button>
+        </div>
+    </fieldset>
+    {% endblock %}
